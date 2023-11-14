@@ -21,7 +21,7 @@ console.log(projectListInstance.getProjectList());
 
 const t1 = createNewToDo(p1.getProjectName(),taskListInstance.getCurrentCounter(),"Test","Test","Test",2, true);
 taskListInstance.taskListAppend(t1);
-const t2 = createNewToDo("Test Project",taskListInstance.getCurrentCounter(),"Miaw","Test","Test",1, false);
+const t2 = createNewToDo(p1.getProjectName(),taskListInstance.getCurrentCounter(),"Miaw","Test","Test",1, false);
 taskListInstance.taskListAppend(t2);
 
 console.log(taskListInstance.getTaskList());
