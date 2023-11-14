@@ -1,5 +1,6 @@
 class project {
-    constructor(projectName, projectColor) {
+    constructor(uid, projectName, projectColor) {
+        this.uid = uid;
         this.projectName = projectName;
         this.projectColor = projectColor;
     }
@@ -13,9 +14,16 @@ class project {
     }
 }
 
-function createNewProject(projectName, projectColor) {
-    const newProject = new project(projectName,projectColor);
+function createNewProject(uid,projectName, projectColor) {
+    const newProject = new project(uid, projectName,projectColor);
     return newProject;
 }
 
-export {createNewProject};
+function checkIfProject(p) {
+    if(p instanceof project) {
+        return true;
+    }
+    return false;
+}
+
+export {createNewProject, checkIfProject};

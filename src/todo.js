@@ -1,10 +1,15 @@
 class todo {
-    constructor(project, title, duedate, description, priority) {
+    constructor(project, uid, title, duedate, description, priority) {
         this.project = project;
+        this.uid = uid;
         this.title = title;
         this.duedate = duedate;
         this.description = description;
         this.priority = priority;
+    }
+
+    getUID() {
+        return this.uid;
     }
 
     getTitle () {
@@ -29,9 +34,16 @@ class todo {
 
 };
 
-function createNewToDo(project, title, duedate, description, priority) {
-    const newToDo = new todo(project, title, duedate, description, priority);
+function createNewToDo(project, uid, title, duedate, description, priority) {
+    const newToDo = new todo(project, uid, title, duedate, description, priority);
     return newToDo;
 }
 
-export {createNewToDo};
+function checkIfTask(t1) {
+    if(t1 instanceof todo) {
+        return true;
+    }
+    return false;
+}
+
+export {createNewToDo, checkIfTask};
