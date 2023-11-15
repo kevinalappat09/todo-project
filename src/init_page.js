@@ -1,11 +1,15 @@
 import { createProjectSelector } from "./createProjectSelector";
 import { createTaskForm, createProjectForm } from "./dyanmicForm";
 import { initHomePageListener } from "./initEventListeners";
+import { initTopDivForm, updateTopDivForm } from "./updatePage";
 
 function loadTaskInputForm() {
-    let taskInputDiv = createTaskForm();
-    return taskInputDiv;
+    let topDiv = document.createElement('div');
+    topDiv.classList.add('.top-div');
+    return topDiv;
 }
+
+
 
 function loadProjectSelector() {
     let projectSelectorDiv = document.createElement('div');
@@ -33,6 +37,7 @@ function initTodoUI() {
 function init_page() {
     const contentDiv = document.querySelector('.content');
     contentDiv.appendChild(loadTaskInputForm());
+    initTopDivForm();
     contentDiv.appendChild(loadProjectSelector());
     contentDiv.appendChild(initTodoUI());
     initHomePageListener();

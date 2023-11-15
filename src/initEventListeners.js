@@ -1,5 +1,6 @@
-import { updateTodoPage } from "./updatePage";
+import { updateTodoPage, updateTopDivForm } from "./updatePage";
 import { addNewTask, deleteTask, taskComplete } from "./taskFunctionality";
+import { createProjectForm, createTaskForm } from "./dyanmicForm";
 
 function addSelectEventListner() {
     const getTaskButton = document.querySelector('#selector-button');
@@ -21,6 +22,15 @@ function addCompleteTaskEventListener() {
 }
 
 function addSwitchToProjectForm() {
+      const switchToProjectButton = document.querySelector('#switch-to-project');
+      console.log(switchToProjectButton);
+      switchToProjectButton.addEventListener('click',updateTopDivForm);
+}
+
+function addSwitchToTaskForm() {
+    const switchToTaskButton = document.querySelector('#switch-to-task');
+    switchToTaskButton.addEventListener('click',updateTopDivForm)
+    console.log("Test");
 }
 
 function addTaskEventListener() {
@@ -31,6 +41,7 @@ function addTaskEventListener() {
 function initHomePageListener() {
     addSelectEventListner();
     addTaskEventListener();
+    addSwitchToProjectForm();
 }
 
 function updateHomePageListener() {
@@ -38,4 +49,4 @@ function updateHomePageListener() {
     addCompleteTaskEventListener();
 }
 
-export {initHomePageListener, updateHomePageListener};
+export {initHomePageListener, updateHomePageListener, addSwitchToTaskForm, addSwitchToProjectForm};

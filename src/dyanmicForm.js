@@ -1,7 +1,9 @@
 import { createProjectSelector } from "./createProjectSelector";
+import { addSwitchToProjectForm, addSwitchToTaskForm } from "./initEventListeners";
 
 function createTaskForm() {
     let taskFormDiv = document.createElement('div');
+    taskFormDiv.classList.add('task-form');
 
     let taskTitleInput = document.createElement('input');
     taskTitleInput.classList.add('form-input');
@@ -55,11 +57,62 @@ function createTaskForm() {
     taskCreateButton.classList.add("button");
     taskFormDiv.appendChild(taskCreateButton);
 
+    let switchToProjectButton = document.createElement('button');
+    switchToProjectButton.innerHTML = "Create a project";
+    switchToProjectButton.id = "switch-to-project";
+    switchToProjectButton.addEventListener('click',addSwitchToProjectForm)
+    switchToProjectButton.classList.add("button");
+    taskFormDiv.appendChild(switchToProjectButton);
+
     return taskFormDiv;
 }
 
 function createProjectForm() {
+    let projectForm = document.querySelector('div');
+    projectForm.classList.add('project-form');
 
+    let projectNameInput = document.createElement('input');
+    projectNameInput.classList.add('form-input');
+    projectNameInput.id = 'pName-input';
+    projectNameInput.placeholder = "Project Name";
+    projectNameInput.type = 'text';
+    taskFormDiv.appendChild(projectNameInput);
+
+    let projectColorInput = document.createElement('select');
+    projectColorInput.id = 'pColor-input';
+    projectColorInput.classList.add('form-input');
+    
+    let pco1 = document.createElement('option');
+    pco1.value = "blue";
+    pco1.innerHTML = "Blue";
+    projectColorInput.appendChild(pco1);
+
+    let pco2 = document.createElement('option');
+    pco2.value = "green";
+    pco2.innerHTML = "Green";
+    projectColorInput.appendChild(pco2);
+
+    let pco3 = document.createElement('option');
+    pco3.value = "red";
+    pco3.innerHTML = "Red";
+    projectColorInput.appendChild(pco3);
+
+    taskFormDiv.appendChild(projectColorInput);
+
+    let projectCreateButton = document.createElement('button');
+    projectCreateButton.innerHTML = "Create";
+    projectCreateButton.id = "create-project-button";
+    projectCreateButton.classList.add("button");
+    taskFormDiv.appendChild(projectCreateButton);
+
+    let switchToTask = document.createElement('button');
+    switchToTask.innerHTML = "Create Task";
+    switchToTask.id = "switch-to-task";
+    switchToTask.classList.add('button');
+    switchToTask.addEventListener('click',addSwitchToTaskForm);
+    taskFormDiv.appendChild(switchToTask);
+
+    return projectForm;
 }
 
 export {createTaskForm, createProjectForm};
