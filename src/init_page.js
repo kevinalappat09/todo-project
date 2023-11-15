@@ -1,9 +1,9 @@
 import { createProjectSelector } from "./createProjectSelector";
+import { createTaskForm, createProjectForm } from "./dyanmicForm";
+import { initHomePageListener } from "./initEventListeners";
 
 function loadTaskInputForm() {
-    let taskInputDiv = document.createElement('div');
-    taskInputDiv.classList.add('task-input-container');
-    taskInputDiv.innerHTML = "This is where the task input form will go";
+    let taskInputDiv = createTaskForm();
     return taskInputDiv;
 }
 
@@ -35,6 +35,7 @@ function init_page() {
     contentDiv.appendChild(loadTaskInputForm());
     contentDiv.appendChild(loadProjectSelector());
     contentDiv.appendChild(initTodoUI());
+    initHomePageListener();
 }
 
 export {init_page};

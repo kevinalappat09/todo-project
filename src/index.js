@@ -3,7 +3,7 @@ import { createNewProject } from "./project";
 import { taskListInstance } from "./todoList";
 import { projectListInstance } from "./projectList";
 import { init_page } from "./init_page";
-import { initHomePageListener } from "./initEventListeners";
+
 
 
 
@@ -29,4 +29,3 @@ console.log(taskListInstance.getTaskList());
 console.log(taskListInstance.getTasksOfProject("Cats"));
 
 init_page();
-initHomePageListener();

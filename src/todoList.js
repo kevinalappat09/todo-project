@@ -88,6 +88,7 @@ class taskList {
         }
         if(itemToSet == -1) {
             taskErrorObject.taskNotFound();
+            console.log(taskUID);
         } else {
             if(this.taskList[i].getIsComplete() == true) {
                 this.taskList[i].setIsComplete(false);

@@ -1,9 +1,13 @@
 import { taskListInstance } from "./todoList";
 import { updateTodoPage } from "./updatePage";
+import { createTaskFromInput } from "./createTaskFromInput";
 
 
 function addNewTask() {
-
+    const taskUID = taskListInstance.getCurrentCounter();
+    const newTask = createTaskFromInput(taskUID);
+    taskListInstance.taskListAppend(newTask);
+    updateTodoPage();
 }
 
 function deleteTask(e) {
@@ -17,4 +21,4 @@ function taskComplete(e) {
     updateTodoPage();
 }
 
-export {deleteTask, taskComplete}
+export {addNewTask,deleteTask, taskComplete}

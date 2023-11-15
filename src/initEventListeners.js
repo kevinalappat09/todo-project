@@ -1,5 +1,5 @@
 import { updateTodoPage } from "./updatePage";
-import { deleteTask, taskComplete } from "./taskFunctionality";
+import { addNewTask, deleteTask, taskComplete } from "./taskFunctionality";
 
 function addSelectEventListner() {
     const getTaskButton = document.querySelector('#selector-button');
@@ -20,8 +20,17 @@ function addCompleteTaskEventListener() {
     }
 }
 
+function addSwitchToProjectForm() {
+}
+
+function addTaskEventListener() {
+    const createTaskButton = document.querySelector('#create-task-button');
+    createTaskButton.addEventListener('click',addNewTask);
+}
+
 function initHomePageListener() {
     addSelectEventListner();
+    addTaskEventListener();
 }
 
 function updateHomePageListener() {
