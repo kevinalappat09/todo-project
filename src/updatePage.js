@@ -1,4 +1,5 @@
 import { taskListInstance } from "./todoList";
+import { createNewTaskDisplay } from "./createTodoElement";
 function updateTodoPage() {
     const todoDiv = document.querySelector('.todo-list');
 
@@ -8,11 +9,7 @@ function updateTodoPage() {
     
     const selectedProjectTasks = Array.from(taskListInstance.getTasksOfProject(projectSelector.value));
     for(let i=0;i<selectedProjectTasks.length;i++) {
-        let newTask = document.createElement('div');
-        let newTaskTitle = document.createElement('div');
-        newTaskTitle.innerHTML = selectedProjectTasks[i].getTitle();
-        newTask.appendChild(newTaskTitle);
-
+        let newTask = createNewTaskDisplay(selectedProjectTasks[i]);
         todoDiv.appendChild(newTask);
     }
     
