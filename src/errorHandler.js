@@ -6,6 +6,14 @@ class taskErrors {
     notTaskError() {
         console.log("Tried inserting an item that was not class todo into the task list");
     }
+
+    taskNotFound() {
+        console.log("task with the required UID not found");
+    }
+
+    wrongIsCompleteID() {
+        console.log("wrong data value has been provided to set the is complete for a task")
+    }
 }
 
 class projectErrors {

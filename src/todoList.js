@@ -38,12 +38,65 @@ class taskList {
         return newTaskList;
     }
 
-    deleteTask(taskName) {
+    getCompleteTasksOfProject(projectName) {
+        let newTaskList = [];
+        for(let i=0;i<this.taskList.length;i++) {
+            if(this.taskList[i].getTaskProject() == projectName && this.taskList[i].getIsComplete() == true) {
+                newTaskList.push(this.taskList[i]);
+            }
+        }
+        return newTaskList;
+    }
 
+    getIncompleteTasksOfProject(projectName) {
+        let newTaskList = [];
+        for(let i=0;i<this.taskList.length;i++) {
+            if(this.taskList[i].getTaskProject() == projectName && this.taskList[i].getIsComplete() == false) {
+                newTaskList.push(this.taskList[i]);
+            }
+        }
+        return newTaskList;
+    }
+
+
+    deleteTask(taskUID) {
+        let i=0;
+        let itemToDelete = -1;
+        while(i<this.taskList.length) {
+            if(this.taskList[i].getUID() == taskUID) {
+                itemToDelete = i;
+                break;
+            }
+            i++;
+        }
+        if(itemToDelete == -1) {
+            taskErrorObject.taskNotFound();
+        } else {
+            this.taskList.splice(i,1);
+        }
+    }
+
+    setComplete(taskUID) {
+        let i=0;
+        let itemToSet = -1;
+        while(i<this.taskList.length) {
+            if(this.taskList[i].getUID() == taskUID) {
+                itemToSet = i;
+                break;
+            }
+            i++;
+        }
+        if(itemToSet == -1) {
+            taskErrorObject.taskNotFound();
+        } else {
+            if(this.taskList[i].getIsComplete() == true) {
+                this.taskList[i].setIsComplete(false);
+            } else {
+                this.taskList[i].setIsComplete(true);
+            }
+        }
     }
 }
-
-//Make delete task
 
 const taskListInstance = new taskList;
 

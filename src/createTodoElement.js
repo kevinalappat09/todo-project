@@ -28,19 +28,24 @@ function createTaskPriority(taskPriority) {
     return newTaskPriority;
 }
 
-function createTaskButtonGroup() {
+function createTaskButtonGroup(uid) {
     let newTaskButtonGroup = document.createElement('div');
     
     let deleteButton = document.createElement('button');
+    deleteButton.id = "task-del-button";
+    deleteButton.setAttribute('data-id',uid);
     deleteButton.innerHTML = "Delete";
     newTaskButtonGroup.appendChild(deleteButton);
 
     let completeButton = document.createElement('button');
     completeButton.innerHTML = "Complete";
+    completeButton.setAttribute('data-id',uid);
+    completeButton.id = "task-comp-button";
     newTaskButtonGroup.appendChild(completeButton);
 
     return newTaskButtonGroup;
 }
+
 
 function createNewTaskDisplay(task) {
     let newTask = document.createElement('div');
@@ -57,7 +62,11 @@ function createNewTaskDisplay(task) {
     const newTaskPriority = createTaskPriority(task.getPriority());
     newTask.appendChild(newTaskPriority);
 
-    const buttonGroup = createTaskButtonGroup();
+    if(task.getIsComplete() == true) {
+        newTask.style.color = "red";
+    }
+
+    const buttonGroup = createTaskButtonGroup(task.getUID());
     newTask.appendChild(buttonGroup);
 
     return newTask;

@@ -1,5 +1,7 @@
 import { taskListInstance } from "./todoList";
 import { createNewTaskDisplay } from "./createTodoElement";
+import { updateHomePageListener } from "./initEventListeners";
+
 function updateTodoPage() {
     const todoDiv = document.querySelector('.todo-list');
 
@@ -12,7 +14,7 @@ function updateTodoPage() {
         let newTask = createNewTaskDisplay(selectedProjectTasks[i]);
         todoDiv.appendChild(newTask);
     }
-    
+    updateHomePageListener();
 }
 
 export {updateTodoPage};

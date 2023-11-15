@@ -1,3 +1,5 @@
+import { taskErrorObject } from "./errorHandler";
+
 class todo {
     constructor(project, uid, title, duedate, description, priority, isComplete) {
         this.project = project;
@@ -35,6 +37,16 @@ class todo {
 
     getIsComplete() {
         return this.isComplete;
+    }
+
+    setIsComplete(i) {
+        if(i==true) {
+            this.isComplete = true;
+        } else if(i==false) {
+            this.isComplete = false;
+        } else {
+            taskErrorObject.wrongIsCompleteID();
+        }
     }
 
 };
