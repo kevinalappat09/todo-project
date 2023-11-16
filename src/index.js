@@ -2,7 +2,7 @@ import { createNewToDo } from "./todo";
 import { createNewProject } from "./project";
 import { taskListInstance } from "./todoList";
 import { projectListInstance } from "./projectList";
-import { init_page } from "./init_page";
+import { initializePage } from "./initializePage";
 
 
 
@@ -28,4 +28,4 @@ console.log(taskListInstance.getTaskList());
 
 console.log(taskListInstance.getTasksOfProject("Cats"));
 
-init_page();
+initializePage();

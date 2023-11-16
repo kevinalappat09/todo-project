@@ -1,52 +1,49 @@
-import { updateTodoPage, updateTopDivForm } from "./updatePage";
+import { loadProjectForm, loadTaskForm, updateTodoPage } from "./updatePage";
 import { addNewTask, deleteTask, taskComplete } from "./taskFunctionality";
-import { createProjectForm, createTaskForm } from "./dyanmicForm";
 
-function addSelectEventListner() {
-    const getTaskButton = document.querySelector('#selector-button');
-    getTaskButton.addEventListener('click', updateTodoPage);
-}
+class SelectProjectListener {
+    constructor() {}
 
-function addDeleteTaskEventListener() {
-    const delButtons = Array.from(document.querySelectorAll('#task-del-button'));
-    for(let i=0;i<delButtons.length;i++) {
-        delButtons[i].addEventListener('click',deleteTask);
-    }   
-}
-
-function addCompleteTaskEventListener() {
-    const completeButtons = Array.from(document.querySelectorAll('#task-comp-button'));
-    for(let i=0;i<completeButtons.length;i++) {
-        completeButtons[i].addEventListener('click',taskComplete);
+    addSelectEventListner() {
+        const getTaskButton = document.querySelector('#selector-button');
+        getTaskButton.addEventListener('click', updateTodoPage);
     }
 }
 
-function addSwitchToProjectForm() {
-      const switchToProjectButton = document.querySelector('#switch-to-project');
-      console.log(switchToProjectButton);
-      switchToProjectButton.addEventListener('click',updateTopDivForm);
+class TaskHandlingListener {
+    constructor() {}
+    
+    addDeleteTaskEventListener() {
+        const delButtons = Array.from(document.querySelectorAll('#task-del-button'));
+        for(let i=0;i<delButtons.length;i++) {
+            delButtons[i].addEventListener('click',deleteTask);
+        }   
+    }
+
+    addCompleteTaskEventListener() {
+        const completeButtons = Array.from(document.querySelectorAll('#task-comp-button'));
+        for(let i=0;i<completeButtons.length;i++) {
+            completeButtons[i].addEventListener('click',taskComplete);
+        }
+    }
 }
 
-function addSwitchToTaskForm() {
-    const switchToTaskButton = document.querySelector('#switch-to-task');
-    switchToTaskButton.addEventListener('click',updateTopDivForm)
-    console.log("Test");
+class NavigationHandlingListener {
+    constructor() {}
+
+    addTaskFormListener() {
+        let switchTaskButton = document.querySelector('#task-nav');
+        switchTaskButton.addEventListener('click',loadTaskForm);
+    }
+
+    addProjectFormListener() {
+        let switchProjectButton = document.querySelector('#project-nav');
+        switchProjectButton.addEventListener('click',loadProjectForm);
+    }
 }
 
-function addTaskEventListener() {
-    const createTaskButton = document.querySelector('#create-task-button');
-    createTaskButton.addEventListener('click',addNewTask);
-}
+const taskHandlerListenerInstance = new TaskHandlingListener;
+const selectProjectListenerInstance = new SelectProjectListener;
+const navListenerInstnace = new NavigationHandlingListener;
 
-function initHomePageListener() {
-    addSelectEventListner();
-    addTaskEventListener();
-    addSwitchToProjectForm();
-}
-
-function updateHomePageListener() {
-    addDeleteTaskEventListener();
-    addCompleteTaskEventListener();
-}
-
-export {initHomePageListener, updateHomePageListener, addSwitchToTaskForm, addSwitchToProjectForm};
+export {taskHandlerListenerInstance,selectProjectListenerInstance,navListenerInstnace};

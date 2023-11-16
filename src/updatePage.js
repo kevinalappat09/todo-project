@@ -1,7 +1,13 @@
 import { taskListInstance } from "./todoList";
 import { createNewTaskDisplay } from "./createTodoElement";
-import { updateHomePageListener } from "./initEventListeners";
-import { createTaskForm, createProjectForm } from "./dyanmicForm";
+import { taskHandlerListenerInstance } from "./initEventListeners";
+import { formGenInstance } from "./createUIElement";
+
+function updateHomePageListener() {
+    taskHandlerListenerInstance.addDeleteTaskEventListener();
+    taskHandlerListenerInstance.addCompleteTaskEventListener();
+}
+
 
 function updateTodoPage() {
     const todoDiv = document.querySelector('.todo-list');
@@ -18,23 +24,16 @@ function updateTodoPage() {
     updateHomePageListener();
 }
 
-function initTopDivForm() {
-    let topDiv = document.querySelector('.top-div');
-    topDiv.innerHTML = "";  
-    topDiv.appendChild(createTaskForm());
+function loadProjectForm() {
+    const topDiv = document.querySelector('#top-div');
+    topDiv.innerHTML = "";
+    topDiv.appendChild(formGenInstance.createProjectForm());
 }
 
-function updateTopDivForm() {
-    let trigger = 0;
-
-    let topDiv = document.querySelector('.top-div');
-    topDiv.innerHTML = "";  
-    if(trigger == 0) {
-        topDiv.appendChild(createTaskForm());
-        trigger = 1;
-    } else {
-        topDiv.appendChild(createProjectForm());
-    }
+function loadTaskForm() {
+    const topDiv = document.querySelector('#top-div');
+    topDiv.innerHTML = "";
+    topDiv.appendChild(formGenInstance.createTaskForm());
 }
 
-export {updateTodoPage, updateTopDivForm, initTopDivForm};
+export {updateTodoPage, loadProjectForm, loadTaskForm};
