@@ -1,5 +1,5 @@
 import { uiGenInstance, formGenInstance } from "./createUIElement"
-import { taskHandlerListenerInstance, selectProjectListenerInstance, navListenerInstnace } from "./initEventListeners";
+import { taskHandlerListenerInstance, selectProjectListenerInstance, navListenerInstnace, formListenerInstance } from "./initEventListeners";
 
 
 
@@ -43,6 +43,7 @@ function initHomePageListener() {
     selectProjectListenerInstance.addSelectEventListner();
     navListenerInstnace.addProjectFormListener();
     navListenerInstnace.addTaskFormListener();
+    formListenerInstance.addTaskEventListener();
 }
 
 function initializePage() {

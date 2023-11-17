@@ -1,6 +1,8 @@
 import { taskListInstance } from "./todoList";
 import { updateTodoPage } from "./updatePage";
 import { createTaskFromInput } from "./createTaskFromInput";
+import { projectListInstance } from "./projectList";
+import { createProjectFromInput } from "./createProjectFromInput";
 
 
 function addNewTask() {
@@ -21,4 +23,11 @@ function taskComplete(e) {
     updateTodoPage();
 }
 
-export {addNewTask,deleteTask, taskComplete}
+function addNewProject() {
+    const projectUID = projectListInstance.getCurrentProjectCounter();
+    const newProject = createProjectFromInput(projectUID);
+    projectListInstance.projectListAppend(newProject);
+    updateTodoPage();
+}
+
+export {addNewTask,deleteTask, taskComplete, addNewProject}

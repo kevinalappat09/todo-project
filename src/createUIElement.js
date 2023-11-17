@@ -121,7 +121,7 @@ class FormGen {
         let taskFormDiv = document.createElement('div');
         taskFormDiv.classList.add('form-div');
     
-        let taskTitleInput = uiGenInstance.createInput('tite-input','text',"Title");
+        let taskTitleInput = uiGenInstance.createInput('title-input','text',"Title");
         taskFormDiv.appendChild(taskTitleInput);
     
         let taskDueInput = uiGenInstance.createInput('due-input','date');

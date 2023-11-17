@@ -1,5 +1,5 @@
 import { loadProjectForm, loadTaskForm, updateTodoPage } from "./updatePage";
-import { addNewTask, deleteTask, taskComplete } from "./taskFunctionality";
+import { addNewProject, addNewTask, deleteTask, taskComplete } from "./taskFunctionality";
 
 class SelectProjectListener {
     constructor() {}
@@ -26,6 +26,22 @@ class TaskHandlingListener {
             completeButtons[i].addEventListener('click',taskComplete);
         }
     }
+
+}
+
+class formListener {
+    constructor() {}
+
+    addTaskEventListener() {
+        const createTaskButton = document.querySelector('#create-task-button');
+        createTaskButton.addEventListener('click',addNewTask);
+    }
+
+
+    addProjectEventListener() {
+        const createProjectButton = document.querySelector('#create-project-button');
+        createProjectButton.addEventListener('click',addNewProject);
+    }
 }
 
 class NavigationHandlingListener {
@@ -45,5 +61,6 @@ class NavigationHandlingListener {
 const taskHandlerListenerInstance = new TaskHandlingListener;
 const selectProjectListenerInstance = new SelectProjectListener;
 const navListenerInstnace = new NavigationHandlingListener;
+const formListenerInstance = new formListener
 
-export {taskHandlerListenerInstance,selectProjectListenerInstance,navListenerInstnace};
+export {taskHandlerListenerInstance,selectProjectListenerInstance,navListenerInstnace, formListenerInstance};
