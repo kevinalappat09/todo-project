@@ -71,6 +71,7 @@ class UIGen {
 
     createProjectSelector() {
         let projectSelector = document.createElement('select');
+        projectSelector.classList.add('form-input');
         projectSelector.classList.add('selector');
         projectSelector.name = "project-selector";
         projectSelector.id = 'project-input';
@@ -144,6 +145,7 @@ class FormGen {
 
     createProjectForm() {
         let projectForm = document.createElement('div');
+        projectForm.classList.add('form-div');
     
         let projectNameInput = uiGenInstance.createInput('pName-input','text','Project Name');
         projectForm.appendChild(projectNameInput);

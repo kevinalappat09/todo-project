@@ -4,6 +4,8 @@ import { taskListInstance } from "./todoList";
 import { projectListInstance } from "./projectList";
 import { initializePage } from "./initializePage";
 
+import './styles.css';
+
 
 
 

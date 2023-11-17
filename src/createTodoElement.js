@@ -49,6 +49,7 @@ function createTaskButtonGroup(uid) {
 
 function createNewTaskDisplay(task) {
     let newTask = document.createElement('div');
+    newTask.classList.add('task')
         
     const newTaskTitle = createTaskTitleUI(task.getTitle());
     newTask.appendChild(newTaskTitle);

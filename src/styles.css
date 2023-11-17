@@ -1,0 +1,112 @@
+:root {
+    --primary : #fffbeb;
+    --secondary : #0a0a0a;
+    --accent : #a3e635;
+}
+
+body { 
+    margin : 0;
+    background-color: var(--primary);
+}
+
+.button {
+    padding : 16px;
+    background-color: var(--accent);
+    color: var(--secondary);
+    border: none;
+    border-radius: 24px;
+    font-weight: 700;
+
+    transition: 400ms;
+}
+
+.button:hover {
+    transform: translateY(-4px);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+}
+
+#nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
+
+.button-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.link-button {
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 400ms;
+}
+
+.link-button:hover {
+    transform: translateY(-4px);
+}
+
+#top-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}   
+
+.form-input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--secondary);
+    background-color: var(--primary);
+    height: 2rem;
+    width: 15rem;
+    transition: 400ms;
+}
+
+.form-input:focus {
+    border: none;
+    border-bottom: 1px solid var(--accent);
+}
+
+#project-selector-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    align-items: center;
+}
+
+.todo-list {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 90%;
+}
+
+.task {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
